@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>page title</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.
+CSS" />
+</head>
+
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+        <section>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Articles</a></li>
+                </ul>
+            </nav>
+            <article>
+                <div class="cart">
+                <a href="#">
+                <img src="https://nz.yeti.com/cdn/shop/products/Drinkware_BottleChug_36oz_Black_Studio_PrimaryB_35ad7a67-7604-4bf2-b362-0db38505f40d.png" alt="drink bottle" width="20%"/>
+                </a>
+                <h2>Yeti Bottle</h2>
+                <p>Paragraph...</p>
+                <button onclick="popUp('Your order','order 5','has shipped')">Add to cart</button>
+            </div>
+            </article>
+            <aside>
+                <h2 id="demo">Related</h2>
+                <ul>
+                    <li><a href="#">Article 1</a></li>
+                    <li><a href="#">Article 2</a></li>
+                </ul>
+            </aside>
+        </section>
+    <footer>
+        <p>@copyright 2050 by nobody. all rights reversed</p>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    document.getElementById("demo").style.color = "orange";
+
+    function popUp(name, order, shipment) {
+        alert(`${name}, ${order}, ${shipment}`) 
+    }
+</script>

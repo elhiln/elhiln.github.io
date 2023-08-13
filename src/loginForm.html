@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <Style>
+        body {
+            font-family: "Helvetica Neue", Helvetica;
+        }
+
+        .login-form {
+            margin: 50px;
+        }
+
+        .details {
+            padding: 10px;
+        }
+
+        .form-label {
+            display: block;
+            padding-bottom: 4px;
+        }
+
+        .form-control {
+            display: block;
+            width: 40%;
+            height: 30px;
+        }
+
+        .message-input {
+            width: 40%;
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            color: rgb(10, 10, 223);
+            border: 2px solid rgb(10, 10, 223);
+            background-color: #ffffff;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            color: #ffffff;
+            background-color: rgb(10, 10, 223);
+        }
+    </Style>
+</head>
+
+<body>
+    <div class="container login-form">
+        <div class="row">
+            <div class="offset-3 col-6">
+                <form onsubmit="onSubmit(event)">
+                    <div class="details">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="details">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject">
+                    </div>
+                    <div class="details">
+                        <label for="messageInput" class="form-label">Message</label>
+                        <textarea name="message" class="message-input" id="body"></textarea>
+                    </div>
+                    <div class="form-button details">
+                        <button id="submitButton" type="submit" class="btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    async function sendEmail(To, Subject, Body) {
+        const feedback = await Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "elhilali.nouran@gmail.com",
+            Password: "ECB23531E4A7296581A668D8DAF14B18A76C",
+            To: 'kingsley.huang@institutedata.com',
+            From: "elhilali.nouran@gmail.com",
+            Subject: "This is the subject",
+            Body: "And this is the body"
+        });
+    console.log(feedback);
+}
+    function onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target).entries();
+        const data = Object.fromEntries(formData);
+        console.log('Object', data);
+    }
+</script>
+</html>
