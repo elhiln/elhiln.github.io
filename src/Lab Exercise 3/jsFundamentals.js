@@ -41,7 +41,6 @@ if (-1) console.log('negative is true') //negative is true
 if (1) console.log('positive is true') //positive is true
 
 
-
 // 4. Rewrite this if using the ternary/conditional operator '?'. Test it with different values for a and b. What does the ‘+=’ do?
 
 let a = 2, b = 3;
@@ -93,7 +92,7 @@ const inigo = {
     lastName: 'Montoya',
     greeting(person) {
         let greeting = `Hello ${person.name}, my name is ${this.firstName} ${this.lastName}. `;
-//console.log(greeting + this.getCatchPhrase(person));
+console.log(greeting + this.getCatchPhrase(person));
 },
 
    getCatchPhrase(person) {
@@ -177,15 +176,15 @@ const sydney = {
     timezone: 'Australia/Sydney'
 }
 
-/*for (let key in sydney) {
+for (let key in sydney) {
     console.log('key: ' + key);
     console.log('value: ' + sydney[key]);
-}*/
+}
 
 // b) Create a new object for a different city with different properties and call your function again with the new object.
 
 const cityClone = {...sydney, name: 'Melbourne'};
-// console.log(cityClone);
+console.log(cityClone);
 
 
 // 9. Use the following variables to understand how JavaScript stores objects by reference.
@@ -193,27 +192,27 @@ const cityClone = {...sydney, name: 'Melbourne'};
 let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
 let moreSports = teamSports
 
-teamSports.push('football')
-teamSports.unshift('football')
+moreSports.push('football')
+moreSports.unshift('football')
 // console.log(moreSports);
 
 
 // b) Create a new dog2 variable equal to dog1 and give it a new value
-   let dog1 = 'Bingo';
+   let dog1 = {name: 'Bingo'};
    let dog2 = dog1;
-   dog2 = 'Blinky';
+   dog2.name = 'Blinky';
 
-// console.log(dog2); 
+console.log(dog2); 
 
 // c) Create a new cat2 variable equal to cat1 and change its name property
 let cat1 = { name: 'Fluffy', breed: 'Siberian' };
 let cat2 = {...cat1, name: 'Whiskers'};
 
-//console.log(cat2);
+console.log(cat2);
 
 // d) Print the original teamSports, dog1 and cat1 variables to the console. Have they
 // changed? Why?
-console.log(teamSports);
+console.log("team",teamSports);
 console.log(dog1);
 console.log(cat1);
 //No they have not changed, because they are a reference of the object

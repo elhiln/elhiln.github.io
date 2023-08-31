@@ -25,7 +25,7 @@ console.log(ucFirstLetters2('nEw zEaland'));
 let str = 'This text will be truncated if it is too long';
 let truncate = str.slice(0, 20) + '...';
 
-console.log('---Q2---')
+console.log('\n---Q2---')
 console.log(truncate);
 
 // b) Write another variant of the truncate function that uses a conditional operator.
@@ -48,7 +48,7 @@ animals.unshift('Panda', 'Deer')
 // c) Sort the values alphabetically
 animals.sort();
 
-console.log('---Q3---')
+console.log('\n---Q3---')
 console.log(animals)
 
 // d) Write a function replaceMiddleAnimal(newValue) that replaces the value in the middle of the animals array with newValue
@@ -88,12 +88,12 @@ function camelCase(cssProp) {
 
 };
 
-console.log('---4---')
+console.log('\n---4---')
 console.log(noSpecialChars) // marginLeft
 console.log(camelCase('margin-left'))
 
 
-// b) Create variants of the camelCase function that use different types of for loops, and console.log(camelCase('background-image')) // backgroundImage
+// b) Create variants of the camelCase function that use different types of for loops
 
 function camelCaseLoop(cssProp2) {
   let words = cssProp2.split('-');  
@@ -107,4 +107,54 @@ function camelCaseLoop(cssProp2) {
 
 console.log(camelCaseLoop('background-image')) // backgroundImage
 
-// c) with and without the conditional operator.console.log(camelCase('display')) // display
+// c) with and without the conditional operator
+
+function camelCaseWithConditional(cssProp) {
+  const words = cssProp.split('-');
+  let camelCasedProp = words[0];
+
+  for (let i = 1; i < words.length; i++) {
+      camelCasedProp += (i === 0 ? words[i] : words[i].charAt(0).toUpperCase() + words[i].slice(1));
+  }
+
+  return camelCasedProp;
+}
+console.log(camelCase('display')) // display
+
+
+// 5. Decimal number operations in JavaScript can lead to unexpected results, as in the following:
+let twentyCents = 0.20
+let tenCents = 0.10
+
+console.log('\n---5---')
+console.log(`${twentyCents} + ${tenCents} = ${twentyCents + tenCents}`)
+// 0.2 + 0.1 = 0.30000000000000004
+
+let fixedTwenty = twentyCents.toFixed(2);
+let fixedTen = tenCents.toFixed(2);
+
+console.log(fixedTwenty + fixedTen)
+
+// a) Explain why the above code returns the wrong answer
+
+
+// b) Create a function currencyAddition(float1, float2) which safely adds the two decimal numbers float1 and float2 and returns the correct float result.
+
+// c) Create a function currencyOperation(float1, float2, operation) which safely performs the given operation (either +, -, / or *) on the two numbers and returns the correct float result.
+
+// d) (Extension) Extend the above function to include a fourth argument numDecimals which allows the operation to support different amounts of decimal places from 1 to 10.
+
+let animal = { eats: true, sleeps: true, legs: 4, mammal: true }; // inherits from Object prototype
+
+let rabbit1 = { jumps: true };
+Object.setPrototypeOf(rabbit1, animal); // NEW recommended way, uses default property descriptor settings
+let rabbit2 = Object.create(animal, { // creates a new object from prototype, with custom properties
+jumps: { // name of custom 'own' property for rabbit object
+value: true, // property descriptor to set the property value
+enumerable: true // property descriptor to make this enumerable - otherwise jumps not in for...in
+}
+});
+console.log(rabbit1, rabbit2) // { jumps: true } - only prints 'own' properties, not inherited ones
+console.log(rabbit1.legs, rabbit2.legs) // 4 - inherited properties do exist
+for (let prop in rabbit1) console.log(`${prop} is ${rabbit1[prop]}`) // own properties, then inherited ones
+for (let prop in rabbit2) console.log(`${prop} is ${rabbit2[prop]}`) // own properties, then inherited ones
